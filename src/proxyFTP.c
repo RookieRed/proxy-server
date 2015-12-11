@@ -76,7 +76,7 @@ int main(int argc, char *argv[]) {
         descSockCOM = accept(descSockRDV, (struct sockaddr *) &from, &len);
         if((pid= fork()) == 0) {
             close(descSockRDV);  // On ferme le socketRDV on s'occupe seulement de gérer le socket actuel
-            strcpy(buffer, "220 Bienvenue sur le proxyFTP de aurehacks\r\n");  // Echange de données avec le client connecté
+            strcpy(buffer, "220 BIENVENUE SUR LE PROXY FTP\r\n");  // Echange de données avec le client connecté
             send(descSockCOM, buffer, strlen(buffer), 0); // Ecriture sur le socket
 
             while(1 == 1) { // Gestion des commandes
@@ -171,7 +171,7 @@ int main(int argc, char *argv[]) {
 
                 // Gestion de la fermeture de session
                 // ==============================================
-                if(strncmp(bufferRcv,"QUIT", 4))
+                if(strncmp(bufferRcv,"QUIT", 4)) {
                     break; // On quitte la boucle lorsque que l'on reçoit la commande "QUIT"
                 }
             }
