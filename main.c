@@ -41,10 +41,10 @@ int main(){
     // Publication de la socket au niveau du système
     // Assignation d'une adresse IP et un numéro de port
     // Mise à zéro de hints
-    hints.ai_family = AF_INET;        // seules les adresses IPv4 seront présentées par 
-				      // la fonction getaddrinfo
+    hints.ai_family = AF_INET;  // seules les adresses IPv4 seront présentées par 
+				      			// la fonction getaddrinfo
     memset(&hints, 0, sizeof(hints));
-    // Initailisation de hints
+    // Initialisation de hints
     hints.ai_flags = AI_PASSIVE;      // mode serveur, nous allons utiliser la fonction bind
     hints.ai_socktype = SOCK_STREAM;  // TCP
 
