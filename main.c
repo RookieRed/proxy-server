@@ -13,7 +13,7 @@
 #include <string.h>
 
 #define SERVER_ADDRESS "127.0.0.1" // Définition de l'adresse IP d'écoute
-#define SERVEUR_PORT "0"            // Définition du port d'écoute, si 0 port choisi dynamiquement
+#define SERVER_PORT "0"            // Définition du port d'écoute, si 0 port choisi dynamiquement
 #define LISTEN_LENGTH 1             // Taille du tampon de demande de connexion
 #define MAX_BUFFER_LENGTH 1024
 #define MAX_HOST_LENGTH 64
@@ -49,7 +49,7 @@ int main(){
     hints.ai_socktype = SOCK_STREAM;  // TCP
 
      // Récupération des informations du serveur
-     ecode = getaddrinfo(SERVER_ADDRESS, SERVEUR_PORT, &hints, &res);
+     ecode = getaddrinfo(SERVER_ADDRESS, SERVER_PORT, &hints, &res);
      if (ecode) {
          fprintf(stderr,"getaddrinfo: %s\n", gai_strerror(ecode));
          exit(1);
