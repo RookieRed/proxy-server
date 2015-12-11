@@ -29,5 +29,5 @@ int main(){
 }
 
 void getLoginEtAdresseDuServeur(buffer, char *login, char *adresse) {
-	scanf(fullAdressen "%[^@]@%S", login, adresse);
+	scanf(buffer, "%[^@]@%S", login, adresse);
 }
