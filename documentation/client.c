@@ -4,9 +4,11 @@
 #include  <netdb.h>
 #include  <string.h>
 #include  <stdlib.h>
+
 #define MAXHOSTLEN 64
 #define MAXPORTLEN 6
 #define MAXBUFFERLEN 1024
+
 int main(int argc, char* argv[]){
     int descSock;                 // Descripteur de la socket
     int ecode;                    // Retour des fonctions
