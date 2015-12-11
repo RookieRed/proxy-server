@@ -6,6 +6,8 @@
 **              PROJET PROXY SERVER           **
 ************************************************/
 
+#include "types.h"
+
 /**
 * Ecrit à l'écran un message d'erreur avec son code
 * @param message : le message à afficher
