@@ -10,7 +10,7 @@
 * Ecrit à l'écran un message d'erreur avec son code
 * @param message : le message à afficher
 */
-void ecrireErreur(const char * message);
+void ecrireErreur(const char * message, const int code);
 
 /**
 * Ecrit à l'écran un message d'information
