@@ -6,12 +6,23 @@
 **              PROJET PROXY SERVER           **
 ************************************************/
 
-#ifndef TYPES_PROXY
+#ifndef PROXY_PREPROC
 
-//Définition du type booléen
+	#define PROXY_PREPROC
+
+	#include <stdio.h>
+	#include <stdlib.h>
+	#include <sys/socket.h>
+	#include <netdb.h>
+	#include <string.h>
+
+	//Définition du type booléen
 	#define TYPES_PROXY
 	#define TRUE -1
 	#define FALSE 0
 	typedef int bool
 
 #endif
+
+	
+

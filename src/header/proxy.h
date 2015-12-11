@@ -6,7 +6,8 @@
 **              PROJET PROXY SERVER           **
 ************************************************/
 
+#include "types.h"
 
-void creerSocketClient();
+Socket creerSocketServeur(const char * port);
 
-void creerSocketServeur();
+Socket creerSocketClient(const char * adresse, const char port);
