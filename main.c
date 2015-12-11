@@ -22,6 +22,12 @@
 #define MAX_HOST_LENGTH   64           // Taille maximale des adresses IP
 #define MAX_PORT_LENGTH   6            // Taille maximale des ports
 
+void getLoginEtAdresseDuServeur(buffer, char *login, char *adresse);
+
 int main(){
     
+}
+
+void getLoginEtAdresseDuServeur(buffer, char *login, char *adresse) {
+	scanf(fullAdressen "%[^@]@%S", login, adresse);
 }
