@@ -95,7 +95,7 @@ Socket creerSocketClient(const char * adresseDist, const * char portDist){
 	return sockFD;
 }
 
-void attenteConnexionCLient(const Socket socRDV, Socket * socCom){
+void attenteConnexionClient(const Socket socRDV, Socket * socCom){
 	int err, addLen;
 	sockaddr addrClient;
 

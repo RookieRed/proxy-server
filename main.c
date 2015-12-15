@@ -28,11 +28,7 @@ int main(){
     listen(socRDV, 1);
 
     while(TRUE){
-    	//On récupère les connexions entrantes et on créer le processus fils
-
-
-    	//Gestion de la connexion client - proxy
-    	
+    	attenteConnexionClient(const Socket socRDV, Socket * socCom)	
     }
 
 }
