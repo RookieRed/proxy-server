@@ -17,10 +17,9 @@
 	#include <string.h>
 
 	//Définition du type booléen
-	#define TYPES_PROXY
 	#define TRUE -1
 	#define FALSE 0
-	typedef int bool
+	typedef int bool;
 
 #endif
 

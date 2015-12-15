@@ -10,14 +10,14 @@
 
 Socket creerSocketServeur(const * char port){
 
-	// VARIABLES =============================
-
-	struct addrinfo hints, *res;
-	int AIlen = sizeof(struct addrinfo);
-	Socket socFD;
-	int err;
-
-//============================================
+//==== VARIABLES =================================
+                                                //
+	struct addrinfo hints, *res;                //
+	int AIlen = sizeof(struct addrinfo);        //
+	Socket socFD;                               //
+	int err;                                    //
+                                                //
+//================================================
 
 	//Création de la socket
 	socFD = socket(AF_INET, SOCK_STREAM, 0);
@@ -51,19 +51,19 @@ Socket creerSocketServeur(const * char port){
 }
 
 
-
-
-
+/*
+* Instancie une socket type cliente et la connecte au serveur passé en params
+*/
 Socket creerSocketClient(const char * adresseDist, const * char portDist){
 
-//  VARIABLES   =============================
-
-	struct addrinfo hints, *res;
-	int AIlen = sizeof(struct addrinfo);
-	Socket socFD;
-	int err;
-
-//============================================
+//==  VARIABLES  ===============================
+                                              //
+	struct addrinfo hints, *res;              //
+	int AIlen = sizeof(struct addrinfo);      //
+	Socket socFD;                             //
+	int err;                                  //
+                                              //
+//==============================================
 
 	//Création de la socket
 	socFD = socket(AF_INET, SOCK_STREAM, 0);
@@ -93,5 +93,31 @@ Socket creerSocketClient(const char * adresseDist, const * char portDist){
 
 	//Retourne le fichier descripteur de la socket
 	return sockFD;
+}
+
+void attenteConnexionCLient(const Socket socRDV, Socket * socCom){
+	int err, addLen;
+	sockaddr addrClient;
+
+	err = listen(socRDV, NB_MAX_LISTEN);
+	if(err){
+		ecrireErreur("Erreur listen", 2);
+	}
+	err = accept(socRDV, &addrClient, &addLen);
+	if (err == -1) {
+		ecrireErreur("Erreur accept");
+	}
+	else {
+		*(socCom) = err;
+		ecrireInfo("Connecté à un client");
+		writ
+	}
+}
+
+void transClientServeur(Socket socFD, char * buffer, int * bufLen){
+
+}
+
+void transServeurClient(Socket socFC, char * buffer, int * bufLen){
 
 }
