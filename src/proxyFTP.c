@@ -20,7 +20,7 @@ int main(int argc, char *argv[]) {
     int socket_serveur; // Descripteur pour le socket
     int retourn_fonction; // Stock le retour des fonctions
     struct addrinfo *resBIS; // Résultat de la fonction getaddrinfo
-    struct addrinfo hintsBIS = {0, AF_INET, SOCKET_STREAM, 0, 0, NULL, NULL, NULL}; // Filtra pour le getaddrinfo
+    struct addrinfo hintsBIS = {0, AF_INET, SOCK_STREAM, 0, 0, NULL, NULL, NULL}; // Filtra pour le getaddrinfo
     char bufferFTP[MAX_BUFFER_LENGTH];
 
     char serverAddr[MAX_HOST_LENGTH]; // Adresse du serveur
@@ -47,7 +47,7 @@ int main(int argc, char *argv[]) {
     pid_t pid;				
 
     // Initialisation de la socket de RDV IPv4/TCP
-    descSockRDV = socket(AF_INET, SOCKET_STREAM, 0);
+    descSockRDV = socket(AF_INET, SOCK_STREAM, 0);
    
    // Mise à zéro de la variable hints,entreeUtilisateur,login.
     memset(&hints, 0, sizeof(hints));
@@ -60,7 +60,7 @@ int main(int argc, char *argv[]) {
 
     // Initialisation de la variable hints 
     hints.ai_flags = AI_PASSIVE;      // mode serveur, nous allons utiliser la fonction bind
-    hints.ai_socktype = SOCKET_STREAM;  // TCP
+    hints.ai_socktype = SOCK_STREAM;  // TCP
     hints.ai_family = AF_INET;        // IPv4
 
     // Récupération des informations du serveur > Machine locale
@@ -87,7 +87,7 @@ int main(int argc, char *argv[]) {
                     memset(buffer, 0, sizeof(MAX_BUFFER_LENGTH));
                     splitLogin(bufferRcv,login,serveur); // On isole le login ainsi que l'IP/URL du serveur
                     strcat(buffer,login); // On formate le login
-                    socket_serveur = socket(AF_INET, SOCKET_STREAM, 0);
+                    socket_serveur = socket(AF_INET, SOCK_STREAM, 0);
                     getaddrinfo(serveur,"21",&hints,&res);
                     connect(socket_serveur, res->ai_addr, res->ai_addrlen);
 
