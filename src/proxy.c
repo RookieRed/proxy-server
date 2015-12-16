@@ -95,7 +95,6 @@ Socket creerSocketClient(const char * adresseDist, const * char portDist){
 	return sockFD;
 }
 
-
 void traitementCom(const Socket socCom){
 	//Variables locales pour processus
 	char login[50], serveur[50], buffer[110], message[50];
