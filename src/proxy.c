@@ -95,11 +95,32 @@ Socket creerSocketClient(const char * adresseDist, const * char portDist){
 	return sockFD;
 }
 
-void attenteConnexionCLient(const Socket socRDV, Socket * socCom){
+
+void traitementCom(const Socket socCom){
+	//Variables locales pour processus
+	char login[50], serveur[50], buffer[110], message[50];
+
+	//On demande les identifiants de connexion à l'utilisateur
+	strcpy(message, "220 Login@Adresse : ")
+	write(socCom, "220 Login@Adresse : ", sizeof(message));
+	read(socCom, buffer, sizeof(buffer));
+
+	//On parse le login et l'adresse
+	scanf(buffer "%[^@]@%S", login, serveur);
+
+	//On crée la socket qui communiquera avec le serveur FTP
+	creerSocketClient(serveur, "21");
+	communication();
+}
+
+
+
+void attenteConnexionClient(const Socket socRDV, Socket * socCom){
 	int err, addLen;
 	sockaddr addrClient;
+	char message[256];
 
-	err = listen(socRDV, NB_MAX_LISTEN);
+	err = listen(socRDV, LISTEN_LENGTH);
 	if(err){
 		ecrireErreur("Erreur listen", 2);
 	}
@@ -110,9 +131,16 @@ void attenteConnexionCLient(const Socket socRDV, Socket * socCom){
 	else {
 		*(socCom) = err;
 		ecrireInfo("Connecté à un client");
-		writ
+		strcpy(message, "Bienvenue sur le proxy!\n");
+		write(*(socCom), message, sizeof(message));
 	}
 }
+
+
+void communication(){
+
+}
+
 
 void transClientServeur(Socket socFD, char * buffer, int * bufLen){
 

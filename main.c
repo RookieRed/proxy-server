@@ -15,26 +15,32 @@
 #define MAX_BUFFER_LENGTH 1024         // Taille maximale du buffer (echange sur réseau)
 #define MAX_HOST_LENGTH   64           // Taille maximale des adresses IP
 #define MAX_PORT_LENGTH   6            // Taille maximale des ports
-#define NB_MAX_LISTEN     2            // Taille de la salle d'attente du listen
 
 void getLoginEtAdresseDuServeur(buffer, char *login, char *adresse);
 
 int main(){
 	// VARIABLES
-    Socket socRDV;
+    Socket socRDV, socCom;
+    pid_t pid;
 
     //On crée la socket de RDV
     socRDV = creerSocketServeur(LOCAL_PORT);
-    listen(socRDV, 1);
+
 
     while(TRUE){
     	//On récupère les connexions entrantes et on créer le processus fils
-
+    	attenteConnexionClient(socRDV, &socCom);
 
     	//Gestion de la connexion client - proxy
-    	
+    	pid = fork();
+    	if(pid == 0){
+    		traitementCom(socCom);
+    	}
+    	else if(pid == -1){
+    		ecrireErreur("Erreur fork, communication impossible", 3);
+    	}
+    	//on referme la socket de RDV
+    	close(socRDV);
     }
 
 }
-
-	//scanf(fullAdressen "%[^@]@%S", login, adresse);
