@@ -56,7 +56,7 @@
         |                                  |                                   |
         |                                  |                                   |
         |                                  |                                   |
-        |                      [DEBUT DE LA COMMUNICTAION]                     |
+        |                      [DEBUT DE LA COMMUNICATION]                     |
         | -------------------------------> |                                   |
         |           REQUETE                |  -------------------------------> |
         |                                  |              REQUETE              |
@@ -67,7 +67,7 @@
         |                                  |                                   |
         |                                  |                                   |
         |                                  |                                   |
-        |                       [FIN DE LA COMMUNICTAION]                      |
+        |                       [FIN DE LA COMMUNICATION]                      |
         |                                  |                                   |
         | -------------------------------> |                                   |
         |               Exit               |  -------------------------------> |
